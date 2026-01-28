@@ -1,0 +1,154 @@
+/* ---------------------------
+   Custom Styling
+   ---------------------------*/
+
+:root {
+  --color-emerald-300: #a1e8dc;
+  --color-emerald-500: #10b981;
+  --color-emerald-950: #064e3b;
+  --color-slate-950: #030712;
+  --color-slate-900: #0f172a;
+}
+
+@font-face {
+  font-family: 'font-heading';
+  font-display: swap;
+  src: local('system-ui'), local('Segoe UI'), local('Roboto');
+}
+
+/* Glass-morphism cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(45, 212, 191, 0.02) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(45, 212, 191, 0.05) 100%);
+  border-color: rgba(16, 185, 129, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Glow accent for featured items */
+.glow-accent {
+  position: relative;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(16, 185, 129, 0.05);
+}
+
+.glow-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(45deg, transparent 0%, rgba(16, 185, 129, 0.1) 50%, transparent 100%);
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Font heading fallback */
+.font-heading {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Research area cards with hover effects */
+.research-area {
+  position: relative;
+  overflow: hidden;
+}
+
+.research-area::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.research-area:hover::after {
+  opacity: 1;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(16, 185, 129, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .font-heading {
+    letter-spacing: -0.01em;
+  }
+
+  .glass-card {
+    padding: 1.25rem !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .glass-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
