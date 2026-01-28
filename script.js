@@ -11,7 +11,7 @@ function escapeHtml(text) {
 // Stats: JSON + Render
 // ---------------------------
 const statsFallback = [
-  { key: "publications", value: "50+", label: "Publications", featured: true },
+  { key: "publications", value: "106", label: "Publications", featured: true },
   { key: "citations", value: "1200+", label: "Citations" },
   { key: "years_experience", value: "15+", label: "Years Experience" },
   { key: "grants", value: "8", label: "Research Grants" }
