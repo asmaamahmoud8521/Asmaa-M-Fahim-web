@@ -3,11 +3,24 @@
    ---------------------------*/
 
 :root {
-  --color-emerald-300: #a1e8dc;
-  --color-emerald-500: #10b981;
-  --color-emerald-950: #064e3b;
-  --color-slate-950: #030712;
-  --color-slate-900: #0f172a;
+  /* Bright Creative Palette */
+  --color-primary: #0d9488;
+  /* Teal 600 */
+  --color-primary-light: #2dd4bf;
+  /* Teal 400 */
+  --color-secondary: #f59e0b;
+  /* Amber 500 */
+  --color-accent: #8b5cf6;
+  /* Violet 500 */
+
+  --color-bg-base: #f8fafc;
+  /* Slate 50 */
+  --color-text-main: #0f172a;
+  /* Slate 900 */
+  --color-text-dim: #475569;
+  /* Slate 600 */
+
+  --font-heading: 'Outfit', system-ui, sans-serif;
 }
 
 @font-face {
@@ -16,45 +29,80 @@
   src: local('system-ui'), local('Segoe UI'), local('Roboto');
 }
 
-/* Glass-morphism cards */
+/* Background Image Setup */
+body {
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Dark Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 6, 23, 0.85);
+  /* Dark Midnight Overlay */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Glass-morphism cards (Dark Mode) */
 .glass-card {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(45, 212, 191, 0.02) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(16, 185, 129, 0.1);
-  transition: all 0.3s ease;
+  background: rgba(2, 6, 23, 0.7);
+  /* Dark background for readability */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: #e2e8f0;
+  /* Ensure text is light */
 }
 
 .glass-card:hover {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(45, 212, 191, 0.05) 100%);
-  border-color: rgba(16, 185, 129, 0.2);
-  transform: translateY(-2px);
+  background: rgba(2, 6, 23, 0.85);
+  border-color: rgba(0, 242, 234, 0.3);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 40px -10px rgba(0, 242, 234, 0.2);
+}
+
+/* Gradient Text helper */
+.text-gradient-creative {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Glow accent for featured items */
 .glow-accent {
   position: relative;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(16, 185, 129, 0.05);
+  overflow: hidden;
 }
 
 .glow-accent::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background: linear-gradient(45deg, transparent 0%, rgba(16, 185, 129, 0.1) 50%, transparent 100%);
-  animation: shimmer 3s infinite;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 242, 234, 0.15) 0%, transparent 60%);
+  animation: rotateGlow 10s linear infinite;
   pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes shimmer {
+@keyframes rotateGlow {
   0% {
-    transform: translateX(-100%);
+    transform: rotate(0deg);
   }
+
   100% {
-    transform: translateX(100%);
+    transform: rotate(360deg);
   }
 }
 
@@ -94,7 +142,8 @@ html {
 }
 
 /* Smooth transitions */
-a, button {
+a,
+button {
   transition: all 0.3s ease;
 }
 

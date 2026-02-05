@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research & Publications - Asmaa M. Fahim</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#00f2ea', /* Neon Cyan */
+                            400: '#2dd4bf',
+                            500: '#0eff80', /* Neon Green */
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#022c22', /* Deep Jungle */
+                            950: '#020617', /* Midnight */
+                        },
+                        slate: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bg-gradient-to-br from-slate-800 via-slate-700 to-emerald-900 text-white min-h-screen">
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/30 border-b border-emerald-500/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-heading font-bold text-emerald-300 hover:text-emerald-200 transition">Asmaa M. Fahim</a>
+            <a href="index.html"
+                class="text-2xl font-heading font-bold text-emerald-300 hover:text-emerald-200 transition">Asmaa M.
+                Fahim</a>
             <div class="space-x-6 hidden md:flex">
                 <a href="index.html" class="text-emerald-100/80 hover:text-emerald-300 transition">Home</a>
                 <a href="research.html" class="text-emerald-300 border-b-2 border-emerald-300">Research</a>
@@ -23,11 +58,13 @@
     <!-- Page Header -->
     <section class="relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
-            <h1 class="text-5xl font-heading font-bold mb-4 bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-300 bg-clip-text text-transparent">
+            <h1
+                class="text-5xl font-heading font-bold mb-4 bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-300 bg-clip-text text-transparent">
                 Research & Publications
             </h1>
             <p class="text-emerald-100/80 text-lg max-w-2xl">
-                Advancing sustainable chemistry through innovation in catalysis, green synthesis, and renewable materials
+                Advancing sustainable chemistry through innovation in catalysis, green synthesis, and renewable
+                materials
             </p>
         </div>
     </section>
@@ -65,7 +102,9 @@
             <div class="glass-card rounded-2xl p-8 mb-12">
                 <h3 class="text-2xl font-heading font-bold mb-4 text-white">Publication Overview</h3>
                 <p class="text-emerald-100/80 mb-6">
-                    My publications cover innovations in green catalysis, sustainable feedstock conversion, nanomaterial synthesis, and environmental remediation. Featured works have received recognition from the international chemistry community and have been cited extensively in subsequent research.
+                    My publications cover innovations in green catalysis, sustainable feedstock conversion, nanomaterial
+                    synthesis, and environmental remediation. Featured works have received recognition from the
+                    international chemistry community and have been cited extensively in subsequent research.
                 </p>
                 <div class="space-y-3">
                     <p class="text-emerald-100/70"><strong>Key Research Topics:</strong></p>
@@ -79,19 +118,29 @@
                     </ul>
                 </div>
             </div>
-
+            <!-- Dynamic Publications List -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-heading font-bold mb-6 text-white text-center">Recent Publications</h3>
+                <div id="publications-list" class="space-y-4">
+                    <!-- Loaded via script.js -->
+                    <div class="text-center text-emerald-100/60 py-8">Loading publications...</div>
+                </div>
+            </div>
             <div class="grid md:grid-cols-3 gap-6 mb-8">
-                <a href="https://scholar.google.com/citations?user=kmTSgywAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl p-6 hover:bg-emerald-500/20 transition">
+                <a href="https://scholar.google.com/citations?user=kmTSgywAAAAJ&hl=en" target="_blank"
+                    rel="noopener noreferrer" class="glass-card rounded-xl p-6 hover:bg-emerald-500/20 transition">
                     <h4 class="text-xl font-heading font-semibold text-emerald-300 mb-2">Google Scholar</h4>
                     <p class="text-emerald-100/60 text-sm mb-4">View complete publication list and citation metrics</p>
                     <span class="text-emerald-300 text-sm font-semibold">Visit Profile →</span>
                 </a>
-                <a href="https://www.researchgate.net/profile/Asmaa-Fahim/research" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl p-6 hover:bg-emerald-500/20 transition">
+                <a href="https://www.researchgate.net/profile/Asmaa-Fahim/research" target="_blank"
+                    rel="noopener noreferrer" class="glass-card rounded-xl p-6 hover:bg-emerald-500/20 transition">
                     <h4 class="text-xl font-heading font-semibold text-emerald-300 mb-2">ResearchGate</h4>
                     <p class="text-emerald-100/60 text-sm mb-4">Download publications and connect with peers</p>
                     <span class="text-emerald-300 text-sm font-semibold">Visit Profile →</span>
                 </a>
-                <a href="https://www.scopus.com/authid/detail.uri?authorId=56765412200" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl p-6 hover:bg-emerald-500/20 transition">
+                <a href="https://www.scopus.com/authid/detail.uri?authorId=56765412200" target="_blank"
+                    rel="noopener noreferrer" class="glass-card rounded-xl p-6 hover:bg-emerald-500/20 transition">
                     <h4 class="text-xl font-heading font-semibold text-emerald-300 mb-2">Scopus</h4>
                     <p class="text-emerald-100/60 text-sm mb-4">Access comprehensive publication and citation data</p>
                     <span class="text-emerald-300 text-sm font-semibold">Visit Profile →</span>
@@ -107,9 +156,11 @@
 
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             renderResearchAreas();
+            renderPublicationsList();
         });
     </script>
 </body>
+
 </html>

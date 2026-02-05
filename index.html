@@ -1,13 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asmaa M. Fahim - Sustainable Chemistry Research</title>
+    <meta name="description"
+        content="Portfolio of Asmaa M. Fahim, a Freelancer and Researcher in Green Chemistry, Catalysis, and Sustainable Materials Science. Explore publications, projects, and innovations.">
+    <meta name="keywords"
+        content="Green Chemistry, Catalysis, Sustainable Materials, Nanomaterials, Asmaa M. Fahim, Chemical Research, Scientific Portfolio">
+    <meta name="author" content="Asmaa M. Fahim">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asmaa-m-fahim-research.netlify.app/">
+    <meta property="og:title" content="Asmaa M. Fahim - Green Chemistry Research Portfolio">
+    <meta property="og:description"
+        content="Discover innovations in sustainable synthesis, catalysis, and nanomaterials. Official research portfolio of Asmaa M. Fahim.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Asmaa M. Fahim - Green Chemistry Research">
+    <meta property="twitter:description" content="Innovations in sustainable synthesis and catalysis.">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#00f2ea', /* Neon Cyan */
+                            400: '#2dd4bf',
+                            500: '#0eff80', /* Neon Green */
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#022c22', /* Deep Jungle */
+                            950: '#020617', /* Midnight */
+                        },
+                        slate: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-br from-slate-800 via-slate-700 to-emerald-900 text-white min-h-screen">
+
+<body class="bg-transparent text-white min-h-screen relative overflow-x-hidden">
+    <!-- Chatbot Widget -->
+    <div id="chatbot" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window (Hidden by default) -->
+        <div id="chat-window"
+            class="hidden mb-4 w-80 glass-card rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/20 flex flex-col transition-all origin-bottom-right transform scale-95 opacity-0">
+            <!-- Header -->
+            <div class="bg-slate-900/90 p-4 border-b border-emerald-500/10 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                    <span class="font-heading font-semibold text-emerald-300">Research Assistant</span>
+                </div>
+                <button id="close-chat" class="text-emerald-100/50 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Messages Area -->
+            <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3 bg-slate-950/50">
+                <div class="flex flex-col items-start">
+                    <div
+                        class="bg-emerald-900/30 text-emerald-100 p-3 rounded-2xl rounded-tl-none text-sm border border-emerald-500/10">
+                        Hello! I'm Prof. Asmaa's virtual assistant. How can I help you today?
+                    </div>
+                </div>
+            </div>
+            <!-- Options / Input -->
+            <div class="p-3 bg-slate-900/90 border-t border-emerald-500/10 grid grid-cols-2 gap-2">
+                <button
+                    class="chat-option px-3 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs text-emerald-300 border border-emerald-500/20 transition text-left"
+                    data-msg="Research Areas?">🔬 Research Areas</button>
+                <button
+                    class="chat-option px-3 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs text-emerald-300 border border-emerald-500/20 transition text-left"
+                    data-msg="Contact Info?">📧 Contact Info</button>
+                <button
+                    class="chat-option px-3 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs text-emerald-300 border border-emerald-500/20 transition text-left"
+                    data-msg="Latest Publications?">📚 Publications</button>
+                <button
+                    class="chat-option px-3 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs text-emerald-300 border border-emerald-500/20 transition text-left"
+                    data-msg="Collaboration?">🤝 Collaborate</button>
+                <button
+                    class="chat-option px-3 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs text-emerald-300 border border-emerald-500/20 transition text-left col-span-2 text-center"
+                    data-msg="SendMessage">📨 Send Me a Message (Instant Alert)</button>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <button id="chat-toggle"
+            class="p-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg hover:shadow-emerald-500/40 transition-all transform hover:scale-105 group">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+        </button>
+    </div>
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/30 border-b border-emerald-500/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -25,19 +134,24 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-5xl font-heading font-bold mb-6 bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-300 bg-clip-text text-transparent">
-                        Sustainable Chemistry Research
+                    <h2
+                        class="text-5xl font-heading font-bold mb-6 bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-300 bg-clip-text text-transparent">
+                        Asmaa M. Fahim
                     </h2>
                     <p class="text-emerald-100/80 text-lg mb-2 leading-relaxed">
-                        <span class="block text-emerald-300 font-semibold mb-2">Freelancer in Green Chemistry and Waste Management</span>
-                        Pioneering innovative solutions in green chemistry, catalysis, and sustainable materials science. Dedicated to creating environmentally conscious chemical processes that benefit both science and society.
+                        <span class="block text-emerald-300 font-semibold mb-2">Professor of Green Chemistry, National
+                            Research Centre</span>
+                        Organic Chemistry, Green Chemistry, COF, MOF, Waste management, and Computational Chemistry and
+                        Biology.
                     </p>
                     <div id="academic-profiles" class="flex flex-wrap gap-3 mb-8"></div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="w-64 h-64 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 backdrop-blur-sm border border-emerald-500/30 flex items-center justify-center">
+                    <div
+                        class="w-64 h-64 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 backdrop-blur-sm border border-emerald-500/30 flex items-center justify-center">
                         <svg class="w-32 h-32 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                         </svg>
                     </div>
                 </div>
@@ -45,6 +159,8 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <!-- Stats Section -->
     <!-- Stats Section -->
     <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50 border-y border-emerald-500/10">
         <div class="max-w-6xl mx-auto">
@@ -69,10 +185,13 @@
             <h3 class="text-4xl font-heading font-bold mb-8 text-emerald-300">About</h3>
             <div class="space-y-4 text-emerald-100/80 leading-relaxed">
                 <p>
-                    With over 15 years of experience in chemical research and development, I focus on advancing sustainable methodologies and technologies that address global environmental challenges.
+                    With over 15 years of experience in chemical research and development, I focus on advancing
+                    sustainable methodologies and technologies that address global environmental challenges.
                 </p>
                 <p>
-                    My research spans sustainable synthesis, catalysis innovation, renewable feedstocks, and circular chemistry principles. I'm committed to translating fundamental discoveries into practical applications that benefit industry and environment.
+                    My research spans sustainable synthesis, catalysis innovation, renewable feedstocks, and circular
+                    chemistry principles. I'm committed to translating fundamental discoveries into practical
+                    applications that benefit industry and environment.
                 </p>
             </div>
         </div>
@@ -83,17 +202,20 @@
         <div class="max-w-4xl mx-auto">
             <h3 class="text-4xl font-heading font-bold mb-4 text-center text-emerald-300">Publications</h3>
             <p class="text-emerald-100/60 text-center mb-8">
-                Over 50 publications with 1200+ citations in leading journals
+                Over 100 publications with 1200+ citations in leading journals
             </p>
-            <div class="glass-card rounded-2xl p-8">
-                <p class="text-emerald-100/80">
-                    My publications cover innovations in green catalysis, sustainable feedstock conversion, nanomaterial synthesis, and environmental remediation. Featured works have received recognition from the international chemistry community and have been cited extensively in subsequent research.
-                </p>
-                <div class="mt-6 flex justify-center">
-                    <a href="#" class="px-6 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 transition">
-                        View All Publications
-                    </a>
-                </div>
+            <p class="text-emerald-100/60 text-center mb-8">
+                Highlighting recent contributions (2024-2026)
+            </p>
+
+            <!-- Recent Publications Container -->
+            <div id="recent-publications"></div>
+
+            <div class="mt-8 flex justify-center">
+                <a href="research.html"
+                    class="px-6 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 transition">
+                    View All Publications
+                </a>
             </div>
         </div>
     </section>
@@ -105,9 +227,24 @@
             <p class="text-emerald-100/80 mb-8">
                 Interested in collaboration or have questions about research? I'd love to hear from you.
             </p>
-            <a href="mailto:contact@example.com" class="px-8 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition">
-                Send Email
-            </a>
+            <div class="flex flex-col items-center gap-4">
+                <a href="mailto:asmaa.fahim@nrc.sci.eg"
+                    class="px-8 py-3 w-full max-w-md rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    asmaa.fahim@nrc.sci.eg
+                </a>
+                <a href="mailto:asmaamahmoud8521@gmail.com"
+                    class="px-8 py-3 w-full max-w-md rounded-lg bg-slate-800 border border-emerald-500/30 text-emerald-300 font-semibold hover:bg-slate-700 transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    asmaamahmoud8521@gmail.com
+                </a>
+            </div>
         </div>
     </section>
 
@@ -121,17 +258,18 @@
         // Initialize the page with default configuration
         const defaultConfig = {
             stats: {
-                publications: "50+",
+                publications: "107",
                 citations: "1200+",
                 years_experience: "15+",
                 grants: "8"
             },
             google_scholar_url: "https://scholar.google.com/citations?user=kmTSgywAAAAJ&hl=en",
             researchgate_url: "https://www.researchgate.net/profile/Asmaa-Fahim/research",
+            scopus_url: "https://www.scopus.com/authid/detail.uri?authorId=56765412200",
             orcid_url: "https://orcid.org/my-orcid?orcid=0000-0002-0293-3491"
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const stats = getStatsFromConfig(defaultConfig);
             renderStats(stats);
             renderResearchAreas();
@@ -139,4 +277,5 @@
         });
     </script>
 </body>
+
 </html>
